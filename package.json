@@ -1,0 +1,23 @@
+{
+  "name": "ts-pro",
+  "version": "1.0.0",
+  "description": "ts project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxxiewang/ts-pro.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxxiewang/ts-pro/issues"
+  },
+  "homepage": "https://github.com/maxxiewang/ts-pro#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
