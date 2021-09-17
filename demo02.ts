@@ -17,3 +17,5 @@ const l3 = lastInArray<string|number>(['a','b','c'])
 let makeTuple = <T,Y = number>(x:T,y:Y)=> [x,y]
 const v1 = makeTuple(1,'2')
 const v2 = makeTuple<boolean,number>(true,2)
+
+// 关于函数里使用泛型是什么意思，有了确定的返回值类型，为啥还要前面放个范型
