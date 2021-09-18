@@ -233,10 +233,6 @@ const per2:{
     Access Modifier 在默认情况下，都是public
     当修饰为private的时候，只能使用getter setter才能访问成员变量
   */
-  const pw2 = new PointTwo(2,3)
-  pw2.x = 11
-  pw2.y = 99 // 实际工作中是很危险的
-
-/* 
-  模块：Module 
-*/
+  // const pw2 = new PointTwo(2,3)
+  // pw2.x = 11
+  // pw2.y = 99 // 实际工作中是很危险的
