@@ -55,14 +55,14 @@ let viking: IPerson = {
   函数：Function  
 */
 // 返回也是Number类型，可选参数z只能放在最后面
-function add(x:number, y:number, z?:number) :number{
+function add2(x:number, y:number, z?:number) :number{
   if(typeof z === 'number'){
     return x + y + z
   }else{
     return x + y
   }
 }
-let result = add(2,3,4)
+let result = add2(2,3,4)
 
 // 函数表达式，这个函数plus本身也有一个类型
 const plus = function(x:number, y:number, z:number = 10){
@@ -280,3 +280,54 @@ interface KeyPair<T,U>{
 }
 let kp1: KeyPair<number,string> ={key:123 , value:'str'}
 let kp2: KeyPair<string,number> ={key:'test', value:123}
+
+let arr:number[] = [1,2,3]
+let arrr1:Array<number> = [1] // 这个例子和接口有什么关系？？？Array<number>提示是接口
+
+interface IPlus{
+  (a:number,b:number):number
+}
+function pluss(a:number,b:number):number{
+  return a+b
+}
+
+const a:IPlus = pluss // 用接口描述函数的类型
+
+/* 
+  类型别名 type aliases
+  常用的场景是联合类型
+*/
+type PlusType = (x:number, y:number) => number
+function sum2(x:number, y:number):number {
+  return x+y
+}
+const sum22:PlusType = sum2
+
+type NameResolver = ()=> string
+type NameOrResolver = string|NameResolver
+
+function getName(n: NameOrResolver):string{
+  if(typeof n === 'string'){
+    return n
+  }else{
+    return n()
+  }
+}
+
+// 类型断言 type assertion
+function getLength(input:string|number):number {
+  // const str = input as String // 这算是接口的写法 , 而as关键字就是断言
+  // if(str.length){
+  //   return str.length
+  // }else{
+  //   const number = input as Number
+  //   return number.toString().length
+  // }
+  if((<string>input).length){ //　整体的把input断言为string
+    return (<string>input).length
+  }else{
+    return input.toString().length
+  }
+}
+
+// 关于第三方的声明文件
