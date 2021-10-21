@@ -6,7 +6,7 @@ let str1:string // 也可
 
 // 类型推断-数组
 let arr11 = ['yoko']
-// arr11.push(11)  报错
+// arr11.push(11)  //报错
 
 let arr12 = ['mimo',11,true]
 
