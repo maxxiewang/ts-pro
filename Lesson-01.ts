@@ -1,6 +1,5 @@
 /* 
   tsc demo.ts -w  可以开启监听状态，动态编译TS文件
-
 */
 let str1:string // 也可
 
