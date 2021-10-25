@@ -23,7 +23,7 @@ user.lesson.push({title:'JAP'})
 let obj1:object = {}
 obj1 = [] // object 后期再更改也可以
 
-let obj2:{name:string,age?:number} // 对象里面的可选参数 
+let obj2:{name:string,age?:number} // 对象里面的可选参数
 obj2={name:'11'}
 
 // 组合类型
@@ -54,7 +54,30 @@ function run():string | void {
   return 'a' // 注意void的用法，不返回值，或理解为返回的是Null或者undefined
 }
 
+/* 
+  函数 Function
+*/
+let fun1 = ()=> 'aa'
+let fun2:Function // 函数大写
+// 函数的参数，当有默认值的情况下，就不要设置可选参数了 
+function sum1(a:number,b:number, d?:number, c:number = 2){
+  return (a + b)*c
+}
 
+function sum3(a:number,b:number, d?:number, c:number = 2):string{
+  return ((a + b)*c).toString()
+}
+
+let msg1 = ():void =>{
+  console.log('msg...')
+}
+
+// type与接口的区别，type主要是对对象和函数进行声明
+type userType ={name:string, age:number} // 把对象结构用type关键字进行声明
+
+let updateUser = (user:userType):void =>{
+  console.log('更新用户')
+}
 
 
 
