@@ -72,6 +72,7 @@ let msg1 = ():void =>{
   console.log('msg...')
 }
 
+
 // type与接口的区别，type主要是对对象和函数进行声明 
 type userType ={name:string, age:number} // 把对象结构用type关键字进行声明
 
