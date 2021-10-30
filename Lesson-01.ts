@@ -79,8 +79,3 @@ type userType ={name:string, age:number} // 把对象结构用type关键字进�
 let updateUser = (user:userType):void =>{
   console.log('更新用户')
 }
-
-
-
-
-
