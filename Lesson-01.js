@@ -17,7 +17,7 @@ user.lesson.push({ title: 'JAP' });
 // 对象与组合类型的声明
 var obj1 = {};
 obj1 = []; // object 后期再更改也可以
-var obj2; // 对象里面的可选参数 
+var obj2; // 对象里面的可选参数
 obj2 = { name: '11' };
 // 组合类型
 var obj3; // 泛型里面再组合
@@ -42,3 +42,53 @@ console.log('bb...', bb);
 function run() {
     return 'a'; // 注意void的用法，不返回值，或理解为返回的是Null或者undefined
 }
+/*
+  函数 Function
+*/
+var fun1 = function () { return 'aa'; };
+var fun2; // 函数大写
+// 函数的参数，当有默认值的情况下，就不要设置可选参数了 
+function sum1(a, b, d, c) {
+    if (c === void 0) { c = 2; }
+    return (a + b) * c;
+}
+function sum3(a, b, d, c) {
+    if (c === void 0) { c = 2; }
+    return ((a + b) * c).toString();
+}
+var msg1 = function () {
+    console.log('msg...');
+};
+var updateUser = function (user) {
+    console.log('更新用户');
+};
+var addUser = function (user) {
+    console.log('新增用户');
+};
+// 函数的结构定义
+var hhd; // 这样也可以，但没有细节
+var hdv; // 定义了一个函数，且后面那个是返回值Number
+hdv = function (x, y) {
+    return x + (Number(y));
+    // return x+y
+};
+// rest 剩余参数必须是数组类型
+function sum() {
+    var args = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+    }
+    return 3;
+}
+sum(1, 2, 3);
+// 练习剩余参数 
+function push(arr) {
+    var args = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        args[_i - 1] = arguments[_i];
+    }
+    arr.push.apply(arr, args);
+    console.log(arr);
+    return arr;
+}
+push(['ff'], 'aa', 11, { 'aa': '1' });

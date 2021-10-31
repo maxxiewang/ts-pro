@@ -79,3 +79,34 @@ type userType ={name:string, age:number} // 把对象结构用type关键字进�
 let updateUser = (user:userType):void =>{
   console.log('更新用户')
 }
+
+let addUser = (user:userType):void =>{
+  console.log('新增用户')
+}
+
+// 函数的结构定义
+let hhd: Function // 这样也可以，但没有细节
+let hdv: (x:number,y:number|string) => number // 定义了一个函数，且后面那个是返回值Number
+hdv = (x,y):number =>{  
+  return x+(Number(y))
+  // return x+y
+}
+
+// rest 剩余参数必须是数组类型
+function sum(...args:number[]):number {
+  return 3
+}
+sum(1,2,3)
+
+// 练习剩余参数 
+function push(arr:any[],...args:any[]) {
+  arr.push(...args)
+  console.log(arr)
+  return arr
+}
+
+push(['ff'],'aa',11,{'aa':'1'})
+
+// 元组Tuple
+let tuple1:[string,number,boolean] = ['ab',11,true]
+// tuple1[0] = true 报错
