@@ -66,12 +66,63 @@ const [cc,zz] = fun11() as [string,Function] // 以方式2断言,对函数的返
 
 let hhi:string
 
-// 方式1，通过断言的方式告诉编译器，不会有空就是html元素
-const el:HTMLElement = document.querySelector('.hdd') as HTMLElement
-// 方式2，以感叹号的形式告诉编译器，这里是非空的
-const el2:HTMLElement = document.querySelector('.he')!
+// HTML元素的两种非空断言。方式1，通过断言的方式告诉编译器，不会有空就是html元素
+// const el:HTMLElement = document.querySelector('.hdd') as HTMLElement
+// 方式2，以感叹号的形式告诉编译器，这里是非空的。这个作用仅仅是非空，在构造函数时可能类型还是不匹配
+// const el2:HTMLElement = document.querySelector('.he')!
 
 //let body: Element | null
-let body = document.querySelector('.body') as HTMLBodyElement
-console.log('body>>>',body)
+// let body = document.querySelector('.body') as HTMLBodyElement
+// let div = document.querySelector('.div1') as HTMLDivElement
 
+/* 
+  DOM事件的处理
+*/
+// const bt = document.querySelector('bt') as HTMLButtonElement
+
+
+/* 
+  TS 类与接口
+*/
+
+class User{
+  name:string
+  age:number
+  constructor(n:string,age:number){
+    this.name = n
+    this.age = age
+  }
+  info(){
+    return `${this.name} is ${this.age}`
+  }
+}
+
+const xiaoming = new User('小明',11)
+const xiaoli = new User('xiaoli',22)
+console.log(xiaoming.info())
+
+let uA:Array<User>
+let userArr: User[]
+const userArray:User[] = []
+userArray.push(xiaoli)
+
+/* 
+  泛型，宽泛的类型，只不过这个类型是动态指定的
+*/
+// 下面这例子，即㒄干的事情一样为什么要写两个呢
+function dump(params:string):string {
+  return params
+}
+let dump1 = dump('str')
+function dumpBoolean(params:boolean):boolean {
+  return params
+}
+let dump2 = dumpBoolean(true)
+
+// 传递不同参数的时候，动态的设定类型
+function dump3<T>(params:T):T {
+  return params
+}
+// 这样可以保证了动态传递类型
+let dumpA = dump3<string>('str') 
+let dumpB = dump3<boolean>(true)

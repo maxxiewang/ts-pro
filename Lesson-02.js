@@ -54,10 +54,53 @@ var _c = fun11(), cc = _c[0], zz = _c[1]; // 以方式2断言,对函数的返回
 */
 // 可以在tsconfig.json中配置对null与undefied的处理，非空断言
 var hhi;
-// 方式1，通过断言的方式告诉编译器，不会有空就是html元素
-var el = document.querySelector('.hdd');
-// 方式2，以感叹号的形式告诉编译器，这里是非空的
-var el2 = document.querySelector('.he');
+// HTML元素的两种非空断言。方式1，通过断言的方式告诉编译器，不会有空就是html元素
+// const el:HTMLElement = document.querySelector('.hdd') as HTMLElement
+// 方式2，以感叹号的形式告诉编译器，这里是非空的。这个作用仅仅是非空，在构造函数时可能类型还是不匹配
+// const el2:HTMLElement = document.querySelector('.he')!
 //let body: Element | null
-var body = document.querySelector('.body');
-console.log('body>>>', body);
+// let body = document.querySelector('.body') as HTMLBodyElement
+// let div = document.querySelector('.div1') as HTMLDivElement
+/*
+  DOM事件的处理
+*/
+// const bt = document.querySelector('bt') as HTMLButtonElement
+/*
+  TS 类与接口
+*/
+var User = /** @class */ (function () {
+    function User(n, age) {
+        this.name = n;
+        this.age = age;
+    }
+    User.prototype.info = function () {
+        return this.name + " is " + this.age;
+    };
+    return User;
+}());
+var xiaoming = new User('小明', 11);
+var xiaoli = new User('xiaoli', 22);
+console.log(xiaoming.info());
+var uA;
+var userArr;
+var userArray = [];
+userArray.push(xiaoli);
+/*
+  泛型，宽泛的类型，只不过这个类型是动态指定的
+*/
+// 下面这例子，即㒄干的事情一样为什么要写两个呢
+function dump(params) {
+    return params;
+}
+var dump1 = dump('str');
+function dumpBoolean(params) {
+    return params;
+}
+var dump2 = dumpBoolean(true);
+// 传递不同参数的时候，动态的设定类型
+function dump3(params) {
+    return params;
+}
+// 这样可以保证了动态传递类型
+var dumpA = dump3('str');
+var dumpB = dump3(true);
