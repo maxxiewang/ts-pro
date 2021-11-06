@@ -126,3 +126,5 @@ function dump3<T>(params:T):T {
 // 这样可以保证了动态传递类型
 let dumpA = dump3<string>('str') 
 let dumpB = dump3<boolean>(true)
+dump3('ss')
+dump3<number>(11)

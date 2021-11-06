@@ -168,7 +168,8 @@ const per2:{
       对象的聚合问题，功能相关的事务，放在同一个集合中形成一个模块。
       模块之前应该是互相独立，保持低耦合的状态。
     */
-  interface Point{
+ { 
+   interface Point{
     x:number,
     y:number
   }
@@ -180,7 +181,7 @@ const per2:{
   let drawPoint2 = ()=>{
 
   }
-
+}
   /* 
     Clss类
   */
