@@ -94,3 +94,38 @@ var myArticle = {
     comments: [{ content: '这是一个评论', author: 'tida' }]
 };
 console.log(myArticle);
+/*
+  readonly的使用
+  构造函数在初使化的时候是可以改变readonly的
+*/
+var Axio1s = /** @class */ (function () {
+    function Axio1s(name) {
+        this.name = name;
+        this.name = name;
+    }
+    return Axio1s;
+}());
+/*
+  单例模式
+  通过静态属性结合把构造方法封装起来，阻止外部实例化对外像
+*/
+var Axios = /** @class */ (function () {
+    function Axios(num) {
+        this.num = num;
+        console.log('构造');
+        this.num = num;
+    }
+    Axios.make = function (num) {
+        if (Axios.instance == null) {
+            console.log('创建实例');
+            Axios.instance = new Axios(num);
+        }
+        return Axios.instance;
+    };
+    Axios.instance = null;
+    return Axios;
+}());
+var as1 = Axios.make(1);
+var as2 = Axios.make(2);
+console.log(as2);
+var as3 = Axios.make(3); // 无论如何，最后只会执行一次

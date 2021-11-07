@@ -109,3 +109,38 @@ const myArticle:ArticleInterface<boolean,CommentType> = {
   comments:[{content:'这是一个评论',author:'tida'}]
 }
 console.log(myArticle)
+
+/* 
+  readonly的使用
+  构造函数在初使化的时候是可以改变readonly的
+*/
+class Axio1s{
+  constructor(public name:string){
+    this.name = name
+  }
+}
+
+/* 
+  单例模式
+  通过静态属性结合把构造方法封装起来，阻止外部实例化对外像
+*/
+
+class Axios{
+  private static instance: Axios|null =null
+  private constructor(public num:number){
+    console.log('构造')
+    this.num = num
+  }
+  static make(num:number):Axios{
+    if(Axios.instance == null){
+      console.log('创建实例')
+      Axios.instance = new Axios(num)
+    }
+    return Axios.instance
+  }
+}
+const as1 = Axios.make(1)
+const as2 = Axios.make(2)
+console.log(as2)
+const as3 = Axios.make(3) // 无论如何，最后只会执行一次
+
