@@ -144,3 +144,55 @@ const as2 = Axios.make(2)
 console.log(as2)
 const as3 = Axios.make(3) // 无论如何，最后只会执行一次
 
+/* 
+  abstract 抽象类与抽象方法，抽象属性。有啥好处？？为什么要用
+*/
+
+/* 
+  接口
+  接口是一系列抽象方法的声明，是一些方法特征的集合，这些方法都应该是抽象的，
+  需要由具体的类去实现，然后第三方就可以通过这组抽象方法调用，让具体的类执行具体的方法。
+
+  1、使用接口约束对象
+  2、接口的继承。 多接口继承，多接口实现
+  3、
+*/
+interface AnimationInterface{
+  name:string,
+  move():void,
+  (x:number,y:number):number
+}
+
+abstract class Animations {
+  protected getPos():{x:number,y:number}{
+    return {x:100,y:300}
+  }
+}
+
+class Tank extends Animations implements AnimationInterface{
+  name:string = ''
+  public move():void{
+    console.log(`${this.name}移动`)
+  }
+  getDistace(x:number,y:number):number{
+    return x+y
+  }
+}
+
+// 使用接口约束对象
+interface UserInterface{
+  name:string
+  age?:number
+  info?():string // 函数可选
+  [key:string]:any // 在接口上补额外的属性
+}
+
+let userDemo:UserInterface = {
+  name:'',
+  age:1,
+  // info:function(){return ''}
+  info(){
+    return '...'
+  }
+}
+
