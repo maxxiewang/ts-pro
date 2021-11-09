@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 // 属性与方法的修饰符
 // 标准写法要用public修饰一下，即不写就是public，公开的
 var Stu = /** @class */ (function () {
@@ -129,3 +144,70 @@ var as1 = Axios.make(1);
 var as2 = Axios.make(2);
 console.log(as2);
 var as3 = Axios.make(3); // 无论如何，最后只会执行一次
+var Animations = /** @class */ (function () {
+    function Animations() {
+    }
+    Animations.prototype.getPos = function () {
+        return { x: 100, y: 300 };
+    };
+    return Animations;
+}());
+var Tank = /** @class */ (function (_super) {
+    __extends(Tank, _super);
+    function Tank() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.name = '';
+        return _this;
+    }
+    Tank.prototype.move = function () {
+        console.log(this.name + "\u79FB\u52A8");
+    };
+    Tank.prototype.getDistace = function (x, y) {
+        return x + y;
+    };
+    Tank.prototype.getYoko = function () {
+        console.log('....');
+    };
+    return Tank;
+}(Animations));
+var userDemo = {
+    name: '',
+    age: 1,
+    // info:function(){return ''}
+    info: function () {
+        return '...';
+    }
+};
+userDemo.info(); // 如果是可选执行可能会过不去
+var SexTypes;
+(function (SexTypes) {
+    SexTypes[SexTypes["BOY"] = 0] = "BOY";
+    SexTypes[SexTypes["GIRL"] = 1] = "GIRL";
+})(SexTypes || (SexTypes = {}));
+var newUser = { name: 'yoko', age: 12, sex: SexTypes.BOY };
+var newUser2 = { name: 'dida', age: 22, sex: 2 };
+// 分别使用接口与泛型定义一个数组
+var userArrays = [newUser, newUser2];
+var userArrss = [newUser, newUser2];
+console.log('newUser', newUser);
+console.log('newUser2', newUser2);
+console.log(SexTypes.BOY, SexTypes[SexTypes.BOY]); // 0 , BOY
+var AliPay = /** @class */ (function () {
+    function AliPay() {
+    }
+    AliPay.prototype.handle = function () {
+        console.log('ali pay');
+    };
+    return AliPay;
+}());
+var WechatPay = /** @class */ (function () {
+    function WechatPay() {
+    }
+    WechatPay.prototype.handle = function () {
+        console.log('wechat pay ');
+    };
+    return WechatPay;
+}());
+var wepay = function (xx) {
+    return true;
+};

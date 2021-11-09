@@ -160,7 +160,7 @@ const as3 = Axios.make(3) // 无论如何，最后只会执行一次
 interface AnimationInterface{
   name:string,
   move():void,
-  (x:number,y:number):number
+  getDistace(x:number,y:number):number
 }
 
 abstract class Animations {
@@ -177,13 +177,16 @@ class Tank extends Animations implements AnimationInterface{
   getDistace(x:number,y:number):number{
     return x+y
   }
+  getYoko(){
+    console.log('....')
+  }
 }
 
 // 使用接口约束对象
 interface UserInterface{
   name:string
   age?:number
-  info?():string // 函数可选
+  info():string // 函数可选
   [key:string]:any // 在接口上补额外的属性
 }
 
@@ -195,4 +198,64 @@ let userDemo:UserInterface = {
     return '...'
   }
 }
+userDemo.info() // 如果是可选执行可能会过不去
 
+// 数组当中使用接口
+interface UsersInterface{
+  name:string
+  age:number
+  sex:SexTypes
+}
+enum SexTypes{
+  BOY,
+  GIRL
+}
+
+const newUser:UsersInterface = { name:'yoko', age:12 , sex:SexTypes.BOY}
+const newUser2:UsersInterface = { name:'dida', age:22, sex:2 }
+
+// 分别使用接口与泛型定义一个数组
+const userArrays:UsersInterface[]= [newUser,newUser2]
+const userArrss:Array<UsersInterface> = [newUser,newUser2]
+
+console.log('newUser',newUser)
+console.log('newUser2',newUser2)
+console.log(SexTypes.BOY , SexTypes[SexTypes.BOY]) // 0 , BOY
+
+
+// 模拟支付
+interface PayInterface{
+  handle(price:number):void
+}
+class AliPay implements PayInterface{
+  public handle():void{
+    console.log('ali pay')
+  }
+}
+
+class WechatPay{
+  public handle():void{
+    console.log('wechat pay ')
+  }
+}
+
+// 接口声明函数，接口有隐式合并的功能
+interface Pay{
+  (price:number):boolean
+}
+
+const wepay:Pay = (xx):boolean=>{
+  return true
+}
+
+// type可以对基本类型起别名，type不可重名，type有合并
+type isAdmin = boolean
+type Sex = 'boy' | 'girl'
+type Myuser = {
+  name:string
+  newSex: 'boy'|'girl'
+  sex:Sex
+}
+interface Myuser2{
+  newSex:Sex
+}
