@@ -259,3 +259,11 @@ type Myuser = {
 interface Myuser2{
   newSex:Sex
 }
+
+// type的合并功能与组合type
+type MyUser3 = isAdmin & Myuser
+type MyUser4 = isAdmin | Myuser
+
+// type居然也有实现，烦
+
+
