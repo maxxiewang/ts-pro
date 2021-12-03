@@ -22,3 +22,16 @@ type Atype = { length: number}
 
 
 
+function getUser() {
+  return {name: 'xxx', age: 10}
+}
+
+console.log(typeof getUser)
+type GetUserType = typeof getUser;
+type ReturnUser = ReturnType<GetUserType>
+
+const FETCH_RECOMMEND_PRODUCTS_START = 
+"FETCH_RECOMMEND_PRODUCTS_START"
+console.log(typeof FETCH_RECOMMEND_PRODUCTS_START)
+
+
