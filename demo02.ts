@@ -18,4 +18,21 @@ let makeTuple = <T,Y = number>(x:T,y:Y)=> [x,y]
 const v1 = makeTuple(1,'2')
 const v2 = makeTuple<boolean,number>(true,2)
 
-// 关于函数里使用泛型是什么意思，有了确定的返回值类型，为啥还要前面放个范型
+
+/* 
+  枚举的练习
+*/
+
+enum Roles{
+  ADMIN,
+  USER = '用户信息',
+  TOURIST = 5
+}
+const superAdmin = Roles.ADMIN
+console.log(superAdmin) // 0
+console.log(Roles[0])  // ADMIN
+console.log(Roles.USER) // '用户信息'
+console.log(Roles[5]) // TOURIST
+console.log(Roles.TOURIST) // 5
+
+
