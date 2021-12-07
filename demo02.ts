@@ -35,4 +35,56 @@ console.log(Roles.USER) // '用户信息'
 console.log(Roles[5]) // TOURIST
 console.log(Roles.TOURIST) // 5
 
+// const handleData = (x: string): number;
+// const handleData = (x: number): string;
+// const handleData = (x: null): number;
+const handleData = (x: string | number | null): any => {
+  if (typeof x === 'string') {
+    return Number(x);
+  }
+  if (typeof x === 'number') {
+    return String(x);
+  }
+  return -1;
+};
+handleData(996)   // "996"
+handleData("996") // 996
+// handleData(false)  // error
+
+/* 
+  可辨识联合类型例子
+*/
+enum CarTransmission {
+  Automatic = 200,
+  Manual = 300
+}
+
+interface Motorcycle {
+  vType: "motorcycle"; // discriminant
+  make: number; // year
+}
+
+interface Car {
+  vType: "car"; // discriminant
+  transmission: CarTransmission
+}
+
+interface Truck {
+  vType: "truck"; // discriminant
+  capacity: number; // in tons
+}
+// 基于前面定义了三个接口，我们可以创建一个 Vehicle 联合类型：
+type Vehicle = Motorcycle | Car | Truck;
+//下面我们来定义一个 evaluatePrice 方法，该方法用于根据车辆的类型、容量和评估因子来计算价格
+const EVALUATION_FACTOR = Math.PI; 
+function evaluatePrice(vehicle: Vehicle) {
+  switch(vehicle.vType) {
+    case "car":
+      return vehicle.transmission * EVALUATION_FACTOR;
+    case "truck":
+      return vehicle.capacity * EVALUATION_FACTOR;
+    case "motorcycle":
+      return vehicle.make * EVALUATION_FACTOR;
+  }
+}
 

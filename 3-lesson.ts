@@ -155,7 +155,6 @@ const as3 = Axios.make(3) // 无论如何，最后只会执行一次
 
   1、使用接口约束对象
   2、接口的继承。 多接口继承，多接口实现
-  3、
 */
 interface AnimationInterface{
   name:string,
