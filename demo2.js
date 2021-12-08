@@ -57,3 +57,29 @@ var getVeg = function (color, veg) {
     return color + "," + (veg ? veg : '');
 };
 console.log(getVeg('blue'));
+var Queue = /** @class */ (function () {
+    function Queue() {
+        var _this = this;
+        this.data = [];
+        this.push = function (item) { return _this.data.push(item); };
+        this.pop = function () { return _this.data.shift(); };
+    }
+    return Queue;
+}());
+var queue = new Queue();
+queue.push(0);
+queue.push('1'); // Oops，一个错误
+console.log(queue.pop().toPrecision(1));
+// console.log(queue.pop().toPrecision(1)); // RUNTIME ERROR
+var myFavoriteNumber;
+myFavoriteNumber = 'abcd';
+myFavoriteNumber = 123;
+var tom = {
+    name: 'Tom',
+    age: 25,
+    gender: 'male'
+};
+var sfun = function (str1, str2) {
+    return false;
+};
+console.log('>>>', sfun('asdf', 'asdf'));

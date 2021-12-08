@@ -61,3 +61,45 @@ const getVeg = (color:string,veg?:string)=>{
   return `${color},${veg?veg:''}`
 }
 console.log(getVeg('blue'))
+
+
+
+
+class Queue {
+  private data = [];
+  push = (item) => this.data.push(item);
+  pop = () => this.data.shift();
+}
+
+const queue = new Queue();
+
+queue.push(0);
+queue.push('1'); // Oops，一个错误
+console.log(queue.pop().toPrecision(1));
+// console.log(queue.pop().toPrecision(1)); // RUNTIME ERROR
+
+let myFavoriteNumber: string | number
+
+myFavoriteNumber = 'abcd'
+myFavoriteNumber = 123
+
+interface Person1 {
+  name: string;
+  age?: number;
+  [propName: string]: string | number;
+}
+
+let tom: Person1 = {
+  name: 'Tom',
+  age: 25,
+  gender: 'male'
+};
+
+interface SearchFunc {
+  (source: string, subString: string): boolean;
+}
+
+let sfun:SearchFunc = (str1:string,str2:string)=>{
+  return false
+}
+console.log('>>>',sfun('asdf','asdf'))
