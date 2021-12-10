@@ -65,6 +65,11 @@ var updateUser = function (user) {
 var addUser = function (user) {
     console.log('新增用户');
 };
+var add1 = function (name, age) {
+    console.log("\u589E\u7684\u7528\u6237\u4E3A\uFF1A" + name + "\uFF0C\u5E74\u9F84\u4E3A" + age);
+    return age;
+};
+add1('yoko', 18);
 // 函数的结构定义
 var hhd; // 这样也可以，但没有细节
 var hdv; // 定义了一个函数，且后面那个是返回值Number
@@ -92,3 +97,6 @@ function push(arr) {
     return arr;
 }
 push(['ff'], 'aa', 11, { 'aa': '1' });
+// 元组Tuple
+var tuple1 = ['ab', 11, true];
+// tuple1[0] = true 报错

@@ -72,17 +72,28 @@ let msg1 = ():void =>{
   console.log('msg...')
 }
 
+/* 
+  type: 类型别名
+  type与接口的区别，type主要是对对象和函数进行声明 
+*/
 
-// type与接口的区别，type主要是对对象和函数进行声明 
-type userType ={name:string, age:number} // 把对象结构用type关键字进行声明
-
+// 把对象结构用type关键字进行声明
+type userType ={name:string, age:number} 
 let updateUser = (user:userType):void =>{
   console.log('更新用户')
 }
-
 let addUser = (user:userType):void =>{
   console.log('新增用户')
 }
+
+// 使用type定义函数
+type addUser = (name:string,age:number) => number;
+let add1:addUser = (name:string,age:number)=>{
+  console.log(`增的用户为：${name}，年龄为${age}`)
+  return age
+};
+add1('yoko',18)
+
 
 // 函数的结构定义
 let hhd: Function // 这样也可以，但没有细节
