@@ -16,7 +16,7 @@ function loggingIdentity<T extends Lengthwise>(arg: T): T {
 
 // loggingIdentity(7);
 
-let me: Array<number|string> = ["大圣",18,33,'']
+let me: Array<number | string> = ["大圣", 18, 33, '']
 
 type Person55 = {
   name: string;
@@ -24,21 +24,21 @@ type Person55 = {
 }
 type PersonKey = keyof Person55;  // PersonKey得到的类型为 'name' | 'age'
 
-let name33:PersonKey
+let name33: PersonKey
 
 interface Role {
   readonly 0: string;
   readonly 1: string;
 }
 
-interface RoleInfo{
-  readonly name:string
-  readonly age:number
+interface RoleInfo {
+  readonly name: string
+  readonly age: number
 }
 
-const per01:RoleInfo = {
-  name:'张三',
-  age:18
+const per01: RoleInfo = {
+  name: '张三',
+  age: 18
 }
 console.log(per01['name'], per01.name)
 const role: Role = {
@@ -66,8 +66,9 @@ console.log(role['1']) // 这里面用role[1] 与role['1']是一样的
 
 // 重点：ReturnType：获取函数返回值的类型
 function getUser() {
-  return {name: 'xxx', age: 10}
+  return { name: 'xxx', age: 10 }
 }
 
 type GetUserTypeA = typeof getUser;
+//! 注意这是一个范型传过去的
 type ReturnUserA = ReturnType<GetUserTypeA>
