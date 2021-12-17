@@ -18,13 +18,7 @@ function loggingIdentity<T extends Lengthwise>(arg: T): T {
 
 let me: Array<number | string> = ["大圣", 18, 33, '']
 
-type Person55 = {
-  name: string;
-  age: number;
-}
-type PersonKey = keyof Person55;  // PersonKey得到的类型为 'name' | 'age'
 
-let name33: PersonKey
 
 interface Role {
   readonly 0: string;
@@ -72,3 +66,11 @@ function getUser() {
 type GetUserTypeA = typeof getUser;
 //! 注意这是一个范型传过去的
 type ReturnUserA = ReturnType<GetUserTypeA>
+
+type Person55 = {
+  name: string;
+  age: number;
+}
+type PersonKey = keyof Person55;  // PersonKey得到的类型为 'name' | 'age'
+
+let name33: PersonKey
