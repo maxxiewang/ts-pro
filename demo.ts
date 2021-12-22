@@ -193,6 +193,7 @@ interface IPoint {
   getDistance: (p: IPoint) => number
 }
 
+
 class Point2 implements IPoint {
   x: number;
   y: number;
