@@ -197,7 +197,7 @@ interface IPoint {
 class Point2 implements IPoint {
   x: number;
   y: number;
-  // js的构重函数不可以重载，把加？变成可选参数或是赋给默认值就变的很重要
+  // js的构造函数不可以重载，把加？变成可选参数或是赋给默认值就变的很重要
   // 通过访问修饰符，在声明构造函数的同时，顺便完成成员变量的声明以及初始化
   // 即在构造函数的声明时，加上public private protected
   constructor(x?: number, y?: number) {
