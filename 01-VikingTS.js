@@ -88,6 +88,7 @@ function echoWithArr22(arg) {
     console.log(arg.length);
     return arg;
 }
+var dktype = echoWithArr22({ length: 2 }); // 体现了duckTyping，只要你叫起来像鸭子，只要length属性符合约束，那就没有问题
 function echoWithArr23(arg) {
     console.log(arg.length);
     return arg;
@@ -95,3 +96,26 @@ function echoWithArr23(arg) {
 function echWithArr24(arg) {
     return arg;
 }
+// 实现一个先进行出的队列， 范型类 
+var Queue2 = /** @class */ (function () {
+    function Queue2() {
+        this.data = [];
+    }
+    Queue2.prototype.push = function (item) {
+        return this.data.push(item);
+    };
+    Queue2.prototype.pop = function () {
+        return this.data.pop();
+    };
+    return Queue2;
+}());
+function plus22(a, b) {
+    return a + b;
+}
+var numB = plus22;
+var numA = plus22;
+function sum12(x, y) {
+    return x + y;
+}
+var sum124 = sum12;
+var sum125 = sum12;

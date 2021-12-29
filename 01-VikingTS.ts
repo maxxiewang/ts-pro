@@ -99,6 +99,7 @@ function echoWithArr22<T extends getLength>(arg: T): T {
   console.log(arg.length)
   return arg
 }
+const dktype = echoWithArr22({ length: 2 }) // 体现了duckTyping，只要你叫起来像鸭子，只要length属性符合约束，那就没有问题
 
 function echoWithArr23<T>(arg: T[]): T[] {
   console.log(arg.length)
@@ -108,3 +109,51 @@ function echoWithArr23<T>(arg: T[]): T[] {
 function echWithArr24<T extends { length: number }>(arg: T): T {
   return arg
 }
+
+// 实现一个先进行出的队列， 范型类 
+class Queue2<T> {
+  private data = <any>[]
+  push(item: T) {
+    return this.data.push(item)
+  }
+  pop(): T {
+    return this.data.pop()
+  }
+}
+
+function plus22(a: number, b: number): number {
+  return a + b
+}
+interface IPlusNum {
+  (a: number, b: number): number
+}
+//接口中使用范围的例子
+interface IPlusNum1<T> {
+  (a: T, b: T): T
+}
+
+const numB: IPlusNum = plus22
+const numA: IPlusNum1<number> = plus22
+
+type PlusType2 = (a: number, b: number) => number
+function sum12(x: number, y: number) {
+  return x + y
+}
+const sum124: PlusType2 = sum12
+const sum125: (x: number, y: number) => number = sum12 //使用type避免了这么麻烦的写法
+
+/* 
+getName函数，参数两种类型，一种是string一种是函数类型，要求返回string，如果是string就返回参数本身
+如果参数是函数，就返回函数的执行结果。一个典型的联合类型，如果没有类型别名type就很难写
+*/
+
+type NameResolver1 = () => string
+type NameOrResover1 = string | NameResolver1
+function getName12(n: NameOrResover1): string {
+  if (typeof n === 'string') {
+    return n
+  } else {
+    return n()
+  }
+}
+
